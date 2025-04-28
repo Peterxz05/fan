@@ -2,7 +2,24 @@ function goToLovePage() {
     document.getElementById('introPage').classList.remove('active');
     document.getElementById('lovePage').classList.add('active');
   }
-  
+  function goToLovePage() {
+  document.getElementById('readyPage').classList.remove('active');
+  document.getElementById('lovePage').classList.add('active');
+}
+
+function enlargeButton() {
+  let button = document.querySelector(".ready-btn");
+  button.style.transform = "scale(1.5)";
+  button.style.transition = "transform 0.3s ease";
+
+  setTimeout(() => {
+    goToLovePage(); // ไปหน้าขอเป็นแฟน
+  }, 300); // รอ 0.3 วิ แล้วไปหน้าใหม่
+}
+
+function notReady() {
+  alert("ไม่เป็นไรน้าา รอค่อยพร้อมก็ได้ 🥺");
+}
   function yes() {
     document.getElementById('lovePage').classList.remove('active');
     document.getElementById('celebratePage').classList.add('active');
