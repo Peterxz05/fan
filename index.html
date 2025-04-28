@@ -8,11 +8,19 @@
 </head>
 <body>
 
-  <!-- หน้าแรก -->
   <div class="page active" id="introPage">
     <h1>มีเรื่องจะบอกนะ... 💌</h1>
-    <button class="next-btn" onclick="goToLovePage()">ไปต่อ ➡️</button>
+    <button class="go-btn" onclick="goToReadyPage()">ไปต่อ ➡️</button>
   </div>
+
+  <!-- หน้าพร้อมมั้ย -->
+<div class="page" id="readyPage">
+  <h1>พร้อมจะฟังมั้ย? 🥺</h1>
+  <div style="display: flex; gap: 20px;">
+    <button class="ready-btn" onclick="enlargeButton()">พร้อมแล้ว ➡️</button>
+    <button class="no-btn" onclick="notReady()">ยังไม่พร้อม 😭</button>
+  </div>
+</div>
 
   <!-- หน้าขอเป็นแฟน -->
   <div class="page" id="lovePage">
