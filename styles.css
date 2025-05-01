@@ -4,7 +4,10 @@ body {
   height: 100vh;
   font-family: 'Arial', sans-serif;
   overflow: hidden;
-  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  background-color: #ffddee;
+  background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
+  background-repeat: repeat;
+  background-size: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,97 +19,239 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 20px;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .active {
   display: flex;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
+h1 {
+  color: #333;
+  font-size: 2em;
+  text-shadow: 1px 1px 4px rgba(255, 192, 203, 0.7);
 }
 
-.next-btn {
-  background-color: #ff69e6;
+button {
+  padding: 12px 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.go-btn {
+  background: linear-gradient(45deg, #ff69b4, #ff85c1);
+  color: white;
+}
+
+.ready-btn {
+  background: linear-gradient(45deg, #4CAF50, #81C784);
+  color: white;
+}
+
+.no-btn {
+  background: linear-gradient(45deg, #f44336, #e57373);
   color: white;
 }
 
 .yes {
-  background-color: #4CAF50;
+  background: linear-gradient(45deg, #66bb6a, #43a047);
   color: white;
 }
 
 .no {
-  background-color: #f44336;
+  background: linear-gradient(45deg, #ef5350, #e53935);
   color: white;
   position: relative;
-}
-
-.no-btn {
-  background-color: #f44336;
-  color: white;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.go-btn {
-  background-color: #ff69b4; /* ชมพูสดสำหรับปุ่ม "ไปต่อ" */
-  color: white;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.ready-btn {
-  background-color: #4CAF50; /* เขียว */
-  color: white;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s ease; /* ทำให้เวลาขยายดูเนียน */
-}
-
-
-.ready-btn:active {
-  transform: scale(1.6);
-  transition: transform 0.1s ease;
-}
-
-.no-btn {
-  background-color: #f44336; /* แดงสำหรับปุ่ม "ยังไม่พร้อม" */
-  color: white;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-
-
-h1 {
-  color: #333;
 }
 
 canvas {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -2;
+}
+.heart-wrapper {
+  width: 400px;
+  height: 360px;
+  margin: auto;
 }
 
+
+.heart-shape {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.heart-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 10px;
+  color: #c71585;
+  z-index: 10;
+  background: none;       
+  padding: 0;              
+  box-shadow: none;       
+  border: none;            
+  
+}
+
+.heart-content h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.heart-content p {
+  font-size: 14px;
+}
+
+
+.date-time {
+  font-size: 18px;
+  color: #c71585;
+  margin-top: 10px;
+}
+
+.display{
+  --width: 20rem;
+  --color: hsl(333 66% 75%);
+  --skew: 1rem;
+  --animation-duration: 10s;
+  aspect-ratio: 1/.5;
+  width: var(--width);
+  border-top-left-radius: 50% var(--skew);
+  border-top-right-radius: 50% var(--skew);
+  background:
+    radial-gradient( 100% 100%,
+      var(--color) calc(50% - 1px), #0000 calc(50% + 1px)
+    ) top center / 100% calc(var(--skew) * 2) no-repeat,
+    linear-gradient(  90deg,
+      color-mix(in oklch, var(--color), hsl(0 0% 100% / .75)),
+      #0000 40% 60%,
+      color-mix(in oklch, var(--color), hsl(0 0% 0% / .5))
+    ),
+    radial-gradient( 100% 100%,
+      color-mix(in oklch, var(--color), hsl(0 0% 20%)) calc(50% - 1px), #0000 calc(50% + 1px)
+    ) top center / 100% calc(var(--skew) * 2 + 7.5%) no-repeat,
+    repeating-linear-gradient(90deg,
+      #0000 0 1.25%, hsl(0 0% 0% / .125) 1.25% 2.5%
+    ) center left / 200% 100%,
+    var(--color);
+  box-shadow:
+    calc(var(--width) * .125) 
+    calc(var(--width) * .125) 
+    calc(var(--width) * .25) 
+    color-mix(in oklch, var(--color), hsl(0 0% 0% / .75));
+  animation: rotateBG calc(var(--animation-duration) / 2) linear infinite;
+  position: relative;
+  
+  >svg {
+    color: #e60023;
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    bottom: calc(100% - var(--skew));
+    animation: rotateItem var(--animation-duration) linear infinite;
+  }
+}
+@keyframes rotateItem { to { rotate: y 360deg } }
+@keyframes rotateBG { to { background-position: -100% 0 } }
+
+html, body { height: 100% }
+body { 
+  margin: 0; 
+  background: hsl(327, 90%, 92%);
+  display: grid;
+  place-items: end center
+}
+
+h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 3em;
+  color: #ff69b4;
+  text-align: center;
+  margin-bottom: 280px;
+  position: relative;
+  animation: fadeIn 3s ease-in-out, colorChange 5s infinite;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: -20px;
+    bottom: 80px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes colorChange {
+  0%, 100% {
+    color: #ff69b4;
+  }
+  25% {
+    color: #c63a3a;
+  }
+  50% {
+    color: #8a2be2;
+  }
+  75% {
+    color: #4b0082;
+  }
+}
+
+h1::before, h1::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #ff69b4);
+  animation: slideIn 3s ease-in-out;
+}
+
+h1::before {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+h1::after {
+  right: 0;
+  transform: translateX(100%);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
