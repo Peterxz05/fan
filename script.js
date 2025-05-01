@@ -1,3 +1,4 @@
+
 function goToReadyPage() {
   document.getElementById('introPage').classList.remove('active');
   document.getElementById('readyPage').classList.add('active');
@@ -157,6 +158,33 @@ function startBackgroundHearts() {
     ctx.restore();
   }
 
+  function yes() {
+    document.getElementById('lovePage').classList.remove('active');
+    document.getElementById('celebratePage').classList.add('active');
+  
+    document.body.style.background = 'linear-gradient(135deg, #ffc0cb, #ffe4e1)';
+  
+    startBackgroundHearts();
+    startFireworks();
+    showDateTime(); // ← เพิ่มบรรทัดนี้
+  }
+  function showDateTime() {
+    const now = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    const dateStr = now.toLocaleDateString('th-TH', options);
+    document.getElementById('dateTimeDisplay').textContent = `เราเป็นแฟนกันตั้งแต่ ${dateStr} 💕`;
+  }
+  function yes() {
+    document.getElementById('lovePage').classList.remove('active');
+    document.getElementById('celebratePage').classList.add('active');
+  
+    document.body.style.background = 'linear-gradient(135deg, #ffc0cb, #ffe4e1)';
+    startBackgroundHearts();
+    startFireworks();
+    showDateTime(); // แสดงวันเวลาที่ตกลงเป็นแฟนกัน
+  }
+    
+
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -168,6 +196,7 @@ function startBackgroundHearts() {
       }
       drawHeart(h.x, h.y, h.size, h.alpha);
     });
+
 
     requestAnimationFrame(animate);
   }
