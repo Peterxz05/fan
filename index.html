@@ -1,61 +1,43 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Girl friend</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Animation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-
-  <!-- หน้าแรก -->
-  <div class="page active" id="introPage">
-    <h1>เค้ามีเรื่องจะบอก... 💌</h1>
-    <button class="go-btn" onclick="goToReadyPage()">ไปต่อ ❤️</button>
-  </div>
-
-  <!-- หน้าพร้อมมั้ย -->
-<div class="page" id="readyPage">
-  <h1>พร้อมจะฟังมั้ย? </h1>
-  <div style="display: flex; gap: 20px;">
-    <button class="ready-btn" onclick="enlargeButton()">พร้อมแล้ว ➡️</button>
-    <button class="no-btn" onclick="notReady()">ยังไม่พร้อม 😭</button>
-  </div>
-</div>
-
-  <!-- หน้าขอเป็นแฟน -->
-  <div class="page" id="lovePage">
-    <h1>เป็นแฟนกันมั้ยคะ? </h1>
-    <div style="display: flex; gap: 20px;">
-      <button class="yes" onclick="yes()">ตกลง</button>
-      <button class="no" onmouseover="moveButton()" onclick="no()">ไม่ตกลง</button>
-    </div>
-  </div>
-
- <!-- หน้าฉลอง -->
- <div class="page" id="celebratePage">
-  <canvas id="backgroundHearts"></canvas>
-  <canvas id="fireworks"></canvas>
-
-  <div class="display">
-    <svg viewBox="0 0 100 92">
-      <path d="M8.57864 8.57864C20.0168 -2.85955 38.5618 -2.85955 50 8.57864C61.4382 -2.85955 79.9832 -2.85955 91.4214 8.57864C102.86 20.0168 102.86 38.5618 91.4214 50C91.4162 50.0052 91.411 50.0104 91.4058 50.0156L50 91.4213L8.59924 50.0206C8.59237 50.0137 8.58551 50.0069 8.57864 50C-2.85955 38.5618 -2.85955 20.0168 8.57864 8.57864Z" fill="currentcolor"/>
-    </svg>
-      <foreignObject x="100" y="150" width="100" height="50">
-        <div class="heart-text" xmlns="http://www.w3.org/1999/xhtml">
-          <h1>เราเป็นแฟนกันแล้วน้า</h1>
-          <p id="currentDate"></p>
-        </div>
-      </foreignObject>
-    </svg>
-  </div>
-</div>
-
-  <canvas id="backgroundHearts"></canvas>
-  <canvas id="fireworks"></canvas>
-</div>
-
+  <body>
   
-  <script src="script.js"></script>
+    <!-- หน้าแรก -->
+    <div class="page active" id="introPage">
+      <h1>เค้ามีเรื่องจะบอก... 💌</h1>
+      <button class="go-btn" onclick="goToReadyPage()">ไปต่อ ❤️</button>
+    </div>
+  
+    <!-- หน้าพร้อมมั้ย -->
+    <div class="page" id="readyPage">
+      <h1>พร้อมจะฟังมั้ย? </h1>
+      <div style="display: flex; gap: 20px;">
+        <button class="ready-btn" onclick="enlargeButton()">พร้อมแล้ว ➡️</button>
+        <button class="no-btn" onclick="notReady()">ยังไม่พร้อม 😭</button>
+      </div>
+    </div>
+  
+    <!-- หน้าขอเป็นแฟน -->
+    <div class="page" id="lovePage">
+      <h1>เป็นแฟนกันมั้ยคะ? </h1>
+      <div style="display: flex; gap: 20px;">
+        <button class="yes" onclick="yes()">ตกลง</button>
+        <button class="no" onmouseover="moveButton()" onclick="no()">ไม่ตกลง</button>
+      </div>
+    </div>
+    <div id="celebratePage" class="page celebrate-page">
+    <canvas id="heartCanvas"></canvas>
+    <canvas id="fireworks"></canvas>
+    <div class="bokeh-container"></div>
+    <div class="center-text">
+        เราเป็นแฟนกันแล้วน้า
+</div>
+<script src="script.js"></script>
 </body>
 </html>
