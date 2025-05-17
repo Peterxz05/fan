@@ -1,182 +1,198 @@
+/* รีเซ็ตเบื้องต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* พื้นหลังเต็มหน้าจอ พร้อมจัดตำแหน่งกลาง */
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
-  background-color: #ffddee;
-  background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
-  background-repeat: repeat;
-  background-size: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: #efd3e2; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(214, 112, 183);
+    position: relative;
 }
 
-.page {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.active {
-  display: flex;
-}
-
-h1 {
-  color: #333;
-  font-size: 2em;
-  text-shadow: 1px 1px 4px rgba(255, 192, 203, 0.7);
-}
-
-button {
-  padding: 12px 28px;
-  font-size: 18px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-}
-
-.go-btn {
-  background: linear-gradient(45deg, #ff69b4, #ff85c1);
-  color: white;
-}
-
-.ready-btn {
-  background: linear-gradient(45deg, #4CAF50, #81C784);
-  color: white;
-}
-
-.no-btn {
-  background: linear-gradient(45deg, #f44336, #e57373);
-  color: white;
-}
-
-.yes {
-  background: linear-gradient(45deg, #66bb6a, #43a047);
-  color: white;
-}
-
-.no {
-  background: linear-gradient(45deg, #ef5350, #e53935);
-  color: white;
-  position: relative;
-}
-
+/* Canvas เต็มหน้าจอ */
 canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -2;
-}
-.heart-wrapper {
-  width: 400px;
-  height: 360px;
-  margin: auto;
-}
-
-
-.heart-shape {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.heart-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  padding: 10px;
-  color: #c71585;
-  z-index: 10;
-  background: none;       
-  padding: 0;              
-  box-shadow: none;       
-  border: none;            
-  
-}
-
-.heart-content h1 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.heart-content p {
-  font-size: 14px;
-}
-
-
-.date-time {
-  font-size: 18px;
-  color: #c71585;
-  margin-top: 10px;
-}
-
-.display{
-  --width: 20rem;
-  --color: hsl(333 66% 75%);
-  --skew: 1rem;
-  --animation-duration: 10s;
-  aspect-ratio: 1/.5;
-  width: var(--width);
-  border-top-left-radius: 50% var(--skew);
-  border-top-right-radius: 50% var(--skew);
-  background:
-    radial-gradient( 100% 100%,
-      var(--color) calc(50% - 1px), #0000 calc(50% + 1px)
-    ) top center / 100% calc(var(--skew) * 2) no-repeat,
-    linear-gradient(  90deg,
-      color-mix(in oklch, var(--color), hsl(0 0% 100% / .75)),
-      #0000 40% 60%,
-      color-mix(in oklch, var(--color), hsl(0 0% 0% / .5))
-    ),
-    radial-gradient( 100% 100%,
-      color-mix(in oklch, var(--color), hsl(0 0% 20%)) calc(50% - 1px), #0000 calc(50% + 1px)
-    ) top center / 100% calc(var(--skew) * 2 + 7.5%) no-repeat,
-    repeating-linear-gradient(90deg,
-      #0000 0 1.25%, hsl(0 0% 0% / .125) 1.25% 2.5%
-    ) center left / 200% 100%,
-    var(--color);
-  box-shadow:
-    calc(var(--width) * .125) 
-    calc(var(--width) * .125) 
-    calc(var(--width) * .25) 
-    color-mix(in oklch, var(--color), hsl(0 0% 0% / .75));
-  animation: rotateBG calc(var(--animation-duration) / 2) linear infinite;
-  position: relative;
-  
-  >svg {
-    color: #e60023;
     position: absolute;
-    width: 80%;
-    left: 10%;
-    bottom: calc(100% - var(--skew));
-    animation: rotateItem var(--animation-duration) linear infinite;
-  }
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
-@keyframes rotateItem { to { rotate: y 360deg } }
+
+/* ข้อความตรงกลาง */
+.center-text {
+    position: absolute;
+    z-index: 1;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 10px deeppink, 0 0 20px hotpink;
+    animation: glow 2s infinite ease-in-out;
+}
+
+/* เอฟเฟกต์วิบวับของข้อความ */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgb(200, 9, 111), 0 0 20px rgb(156, 36, 92);
+    }
+    50% {
+        text-shadow: 0 0 20px rgb(215, 29, 103), 0 0 30px deeppink;
+    }
+    100% {
+        text-shadow: 0 0 10px rgb(211, 25, 127), 0 0 20px hotpink;
+    }
+}
+.bokeh-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bokeh-heart {
+    position: absolute;
+    background: pink;
+    opacity: 0.3;
+    clip-path: path('M0,10 C0,5 5,0 10,5 C15,0 20,5 20,10 C20,17 10,25 10,25 C10,25 0,17 0,10 Z');
+    filter: blur(3px);
+    animation-name: float, blink;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.3);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(1) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.boyi {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background-color: #ffddee;
+    background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
+    background-repeat: repeat;
+    background-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .page {
+    display: none;
+    flex-direction: column;
+    justify-content:end;  /* ✅ ตำแหน่งด้านล่าง */
+    align-items: center;
+    text-align: center;
+    gap: 9px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: fadeIn 0.5s ease;
+    height: 80vh; /* ✅ เต็มจอ */
+    padding-bottom: 60px;
+  }
+  .page.celebrate-page {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  height: 100vh !important;
+  justify-content: center !important;
+  align-items: flex-end !important;
+  text-align: end;
+}
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .active {
+    display: flex;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 2em;
+    text-shadow: 1px 1px 4px rgba(255, 192, 203, 0.7);
+  }
+  
+  button {
+    padding: 12px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  }
+  
+  .go-btn {
+    background: linear-gradient(45deg, #ff69b4, #ff85c1);
+    color: white;
+  }
+  
+  .ready-btn {
+    background: linear-gradient(45deg, #4CAF50, #81C784);
+    color: white;
+  }
+  
+  .no-btn {
+    background: linear-gradient(45deg, #f44336, #e57373);
+    color: white;
+  }
+  
+  .yes {
+    background: linear-gradient(45deg, #66bb6a, #43a047);
+    color: white;
+  }
+  
+  .no {
+    background: linear-gradient(45deg, #ef5350, #e53935);
+    color: white;
+    position: relative;
+  }
+  
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+  }
+  @keyframes rotateItem { to { rotate: y 360deg } }
 @keyframes rotateBG { to { background-position: -100% 0 } }
 
 html, body { height: 100% }
@@ -254,4 +270,8 @@ h1::after {
   100% {
     transform: translateX(-100%);
   }
+}
+
+.active {
+  display: flex;
 }
