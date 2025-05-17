@@ -129,6 +129,23 @@ canvas {
   align-items: flex-end !important;
   text-align: end;
 }
+.celebrate-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+}
 
   @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.95); }
