@@ -118,7 +118,7 @@ canvas {
     align-items: center;
     text-align: center;
     gap: 9px;
-    background: rgba(223, 217, 216, 0.7);
+    background: rgb(255, 255, 255);
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -148,7 +148,7 @@ canvas {
   h1 {
     color: #333;
     font-size: 2em;
-    text-shadow: 1px 1px 4px rgba(255, 192, 203, 0.7);
+    text-shadow: 1px 1px 4px rgb(255, 255, 255);
   }
   
   button {
@@ -204,7 +204,7 @@ canvas {
 html, body { height: 100% }
 body { 
   margin: 0; 
-  background: hsl(336, 60%, 81%);
+  background: hsl(336, 57%, 86%);
   display: grid;
   place-items: end center
 }
